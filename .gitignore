@@ -1,0 +1,9 @@
+*.pdb
+*.exe
+*.ilk
+*.obj
+*.pch
+*.res
+*.idb
+*.ys
+*.zip
