@@ -29,7 +29,7 @@ This file is part of Story.
 
 #define size 2552                // 20+20+20+8*12+28*17+80*24
 #define grade 40
-#define ver "1.4.1"
+#define ver "1.4.2"
 
 #define storyfolder "D:\\story\\"
 #define savefolder "D:\\story\\save\\"
