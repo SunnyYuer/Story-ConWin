@@ -29,7 +29,7 @@ This file is part of Story.
 
 #define size 2552                // 20+20+20+8*12+28*17+80*24
 #define grade 40
-#define ver "1.4.2"
+#define ver "1.4.3"
 
 #define storyfolder "D:\\story\\"
 #define savefolder "D:\\story\\save\\"
@@ -2464,14 +2464,15 @@ struct CHARACTER BuyGoods(struct CHARACTER cha)
     {
       printf("\n");
       return cha;
-     }
+    }
     printf("¹ºÂòÊýÁ¿:");
     w = cha.t;
     scanf("%d",&t);
     getchar();
-    if(t<0)
+    if(t<=0)
     {
-      t = 0;
+      printf("\n");
+	  return cha;
     }
     if((n==1&&cha.mny-cha.grd*3*t/3<0)||(n==2&&cha.mny-cha.grd*5*t/3<0)||(n==3&&cha.mny-cha.grd*10*t/3<0))
     {
