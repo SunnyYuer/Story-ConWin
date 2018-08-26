@@ -29,7 +29,7 @@ This file is part of Story.
 
 #define size 2552                // 20+20+20+8*12+28*17+80*24
 #define grade 40
-#define ver "1.4.3"
+#define ver "1.4.4"
 
 #define storyfolder "D:\\story\\"
 #define savefolder "D:\\story\\save\\"
@@ -3872,7 +3872,7 @@ struct CHARACTER Battle(struct CHARACTER cha, struct MONSTER mon[])
 	 cha.buddy3[9] = '\0';
 	}
 loop0:
-	if(g==0)
+	if(g==0)//表示战斗操作状态
 	{
 		printf("%9s",cha.buddy1);            //人名
 		printf("%9s",cha.buddy2);
@@ -3991,7 +3991,7 @@ loop0:
 		  }
 	  }
 	 }
-	 if(g==1)
+	 if(g==1)//表示你打怪的状态
 	 {
 	  if(cha.trp==0)
 	  {
@@ -4160,7 +4160,7 @@ loop0:
 	   }
 	  }
 	 }
-	 if(g==2)
+	 if(g==2)//表示怪打你的状态
 	 {
 	  if(cha.trp==0)
 	  {
@@ -4645,15 +4645,22 @@ loop0:
 	 }
 	 if(i==k)      //轮到第k个怪时
 	 {
-	   if((strcmp(cha.prof,"法师")==0&&t==1)||(strcmp(cha.prof,"道士")==0&&t==1&&anim==-1.0&&cha.q!=3&&cha.q!=4&&cha.k!=1.3&&cha.q!=6))
-	   {
-	    printf("怪");
-		k = cha.m-1;
-	   }
-	   else
-	   {
-	    printf("  ");
-	   }
+		 if(g==2)
+		 {
+			 if((strcmp(cha.prof,"法师")==0&&t==1)||(strcmp(cha.prof,"道士")==0&&t==1&&anim==-1.0&&cha.q!=3&&cha.q!=4&&cha.k!=1.3&&cha.q!=6))
+			 {//施法时，怪打不着你
+				 printf("怪");
+				 k = cha.m-1;
+			 }
+			 else
+			 {
+				 printf("  ");
+			 }
+		 }
+		 else
+		 {
+			 printf("怪");
+		 }
 	 }
 	 if(g==1)
 	 {
@@ -9230,7 +9237,7 @@ void main()
  printf("          *               *                                  *  *           \n");
  printf("          *                *                                   **           \n");
  char version[10]=ver;
- printf("  v%s                                             Copyright 2013-2016 Yuer\n\n",version);
+ printf("  v%s                                             Copyright 2013-2018 Yuer\n\n",version);
  printf("                                                                  40级开启\n\n");
  //始作于2013年4月16日
  _mkdir(storyfolder);        //创建文件夹
